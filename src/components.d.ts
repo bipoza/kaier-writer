@@ -7,6 +7,7 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     interface KaierEditor {
+        "content_text": string;
     }
     interface KaierToolbar {
         "icons": {
@@ -72,6 +73,7 @@ declare global {
 }
 declare namespace LocalJSX {
     interface KaierEditor {
+        "content_text"?: string;
     }
     interface KaierToolbar {
         "icons"?: {

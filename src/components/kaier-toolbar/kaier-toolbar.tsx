@@ -1,7 +1,7 @@
-import { Component, ComponentInterface, Prop, Host, getAssetPath, h } from '@stencil/core';
+import { Component, ComponentInterface, Prop, Host, getAssetPath, h, Element } from '@stencil/core';
 // import 'ionicons';
 import 'ionicons';
-import {DEFAULT_ICONS} from '@constants'
+import { DEFAULT_ICONS } from '@constants'
 @Component({
   tag: 'kaier-toolbar',
   styleUrl: 'kaier-toolbar.css',
@@ -9,7 +9,24 @@ import {DEFAULT_ICONS} from '@constants'
   assetsDirs: ['assets']
 })
 export class KaierToolbar implements ComponentInterface {
+  @Element() private element: HTMLElement;
   @Prop() icons = DEFAULT_ICONS;
+
+  componentDidLoad() {
+    this.documentEditor();
+  }
+
+  documentEditor() {
+    this.element.shadowRoot.querySelectorAll('[data-edit]').forEach(btn =>
+      btn.addEventListener('click', edit)
+    );
+    function edit(ev) {
+      ev.preventDefault();
+      const cmd_val = this.getAttribute('data-edit').split(':');
+      document.execCommand(cmd_val[0], false, cmd_val[1]);
+    }
+  }
+  
   render() {
     return (
       <Host>

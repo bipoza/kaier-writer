@@ -1,4 +1,4 @@
-import { Component, ComponentInterface, Host, h } from '@stencil/core';
+import { Component, ComponentInterface, Prop, Watch, Host, h, Element } from '@stencil/core';
 
 @Component({
   tag: 'kaier-editor',
@@ -6,16 +6,29 @@ import { Component, ComponentInterface, Host, h } from '@stencil/core';
   shadow: true,
 })
 export class KaierEditor implements ComponentInterface {
+  @Element() private element: HTMLElement;
+  @Prop() content_text: string = 'Once upon a time...✏️';
+  // @Watch('content_text')
+  // onNameChanged(value) {
+  //   console.log("newValue: ", value);
+  // }
 
+  componentDidLoad() {
+    this.contentChangeEvent();
+  }
+
+  contentChangeEvent() {
+    this.element.shadowRoot.getElementById("content").addEventListener("input", (event) => this.content_text = event.target['innerText']);
+  }
   render() {
     return (
       <Host>
         <slot>
-        <div id="editor" class="editor" data-simplebar data-simplebar-auto-hide="false">
+          <div id="editor" class="editor" data-simplebar data-simplebar-auto-hide="false">
             <div id="content" class="content" contenteditable="true">
-                <p>Once upon a time...✏️</p>
+              <p>Once upon a time...✏️</p>
             </div>
-        </div>
+          </div>
         </slot>
       </Host>
     );
