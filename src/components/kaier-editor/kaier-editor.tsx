@@ -1,4 +1,4 @@
-import { Component, ComponentInterface, Prop, Watch, Host, h, Element } from '@stencil/core';
+import { Component, ComponentInterface, Prop, Host, h, Element } from '@stencil/core';
 
 @Component({
   tag: 'kaier-editor',
