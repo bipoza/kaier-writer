@@ -1,0 +1,46 @@
+:host {
+  display: block;
+}
+
+/* Container, Editor and Content */
+
+/* .container {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+} */
+
+.editor {
+  font-family: 'Buenard', sans-serif;
+  display: block;
+  max-width: 900px;
+  height: 500px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  margin: auto;
+  padding: 0px 50px 50px 150px;
+  margin-top: 64px;
+}
+
+.content {
+  font-family: 'Buenard', sans-serif;
+  font-size: 21px;
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  min-height: 900px;
+  padding: 10px;
+  padding-top: 0;
+  margin-top: -4px;
+  overflow-wrap: break-word;
+  background: var(--background);
+  color: var(--text);
+  border: 0;
+  border-radius: 4px;
+  outline: 0px;
+}
+
+[contenteditable] {
+  background: var(--background);
+  color: var(--text);
+}
