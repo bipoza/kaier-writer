@@ -1,4 +1,4 @@
-import { Component, ComponentInterface, Prop, Host, h, Element } from '@stencil/core';
+import { Component, ComponentInterface, Prop, Host, h, Element, EventEmitter, Event } from '@stencil/core';
 
 @Component({
   tag: 'kaier-editor',
@@ -12,13 +12,20 @@ export class KaierEditor implements ComponentInterface {
   // onNameChanged(value) {
   //   console.log("newValue: ", value);
   // }
-
+  @Event() contextTextChanges: EventEmitter<string>;
+  contextTextChangesHandler(todo: string) {
+    console.log("TODO: ", todo)
+    this.contextTextChanges.emit(todo);
+  }
   componentDidLoad() {
     this.contentChangeEvent();
   }
-
+  
   contentChangeEvent() {
-    this.element.shadowRoot.getElementById("content").addEventListener("input", (event) => this.content_text = event.target['innerText']);
+    this.element.shadowRoot.getElementById("content").addEventListener("input", (event) => {
+      this.content_text = event.target['innerHTML'];
+      this.contextTextChangesHandler(this.content_text);
+    });
   }
   render() {
     return (

@@ -7,6 +7,7 @@ import { Component, ComponentInterface, Prop, Host, h } from '@stencil/core';
 })
 export class KaierWriter implements ComponentInterface {
   @Prop() text: string;
+  
   render() {
     return (
       <Host>

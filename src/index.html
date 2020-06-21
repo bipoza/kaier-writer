@@ -19,7 +19,15 @@
     <kaier-toolbar slot="top"></kaier-toolbar>
     <kaier-editor slot="bottom"></kaier-editor>
   </kaier-writer>
-
+  <script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+      const kaier_editor = document.querySelector('kaier-editor');
+      kaier_editor.addEventListener("contextTextChanges",res=>{
+        console.log("RESPONSE: ", res.detail);
+        // DO SOMETHING WITH THE RESPONSE TEXT
+      });
+    })
+  </script>
 </body>
 
 </html>

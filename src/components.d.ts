@@ -10,16 +10,7 @@ export namespace Components {
         "content_text": string;
     }
     interface KaierToolbar {
-        "icons": {
-            bold: string;
-            heading: string;
-            italic: string;
-            link: string;
-            list_ol: string;
-            list_ul: string;
-            quote_right: string;
-            underline: string;
-        };
+        "icons": { bold: string; heading: string; italic: string; link: string; list_ol: string; list_ul: string; quote_right: string; underline: string; };
     }
     interface KaierWriter {
         "text": string;
@@ -74,18 +65,10 @@ declare global {
 declare namespace LocalJSX {
     interface KaierEditor {
         "content_text"?: string;
+        "onContextTextChanges"?: (event: CustomEvent<string>) => void;
     }
     interface KaierToolbar {
-        "icons"?: {
-            bold: string;
-            heading: string;
-            italic: string;
-            link: string;
-            list_ol: string;
-            list_ul: string;
-            quote_right: string;
-            underline: string;
-        };
+        "icons"?: { bold: string; heading: string; italic: string; link: string; list_ol: string; list_ul: string; quote_right: string; underline: string; };
     }
     interface KaierWriter {
         "text"?: string;
