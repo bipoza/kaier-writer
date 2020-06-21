@@ -20,20 +20,6 @@ export namespace Components {
     interface KaierWriter {
         "text": string;
     }
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first": string;
-        /**
-          * The last name
-         */
-        "last": string;
-        /**
-          * The middle name
-         */
-        "middle": string;
-    }
 }
 declare global {
     interface HTMLKaierCounterElement extends Components.KaierCounter, HTMLStencilElement {
@@ -60,18 +46,11 @@ declare global {
         prototype: HTMLKaierWriterElement;
         new (): HTMLKaierWriterElement;
     };
-    interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
-    }
-    var HTMLMyComponentElement: {
-        prototype: HTMLMyComponentElement;
-        new (): HTMLMyComponentElement;
-    };
     interface HTMLElementTagNameMap {
         "kaier-counter": HTMLKaierCounterElement;
         "kaier-editor": HTMLKaierEditorElement;
         "kaier-toolbar": HTMLKaierToolbarElement;
         "kaier-writer": HTMLKaierWriterElement;
-        "my-component": HTMLMyComponentElement;
     }
 }
 declare namespace LocalJSX {
@@ -89,26 +68,11 @@ declare namespace LocalJSX {
     interface KaierWriter {
         "text"?: string;
     }
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first"?: string;
-        /**
-          * The last name
-         */
-        "last"?: string;
-        /**
-          * The middle name
-         */
-        "middle"?: string;
-    }
     interface IntrinsicElements {
         "kaier-counter": KaierCounter;
         "kaier-editor": KaierEditor;
         "kaier-toolbar": KaierToolbar;
         "kaier-writer": KaierWriter;
-        "my-component": MyComponent;
     }
 }
 export { LocalJSX as JSX };
@@ -119,7 +83,6 @@ declare module "@stencil/core" {
             "kaier-editor": LocalJSX.KaierEditor & JSXBase.HTMLAttributes<HTMLKaierEditorElement>;
             "kaier-toolbar": LocalJSX.KaierToolbar & JSXBase.HTMLAttributes<HTMLKaierToolbarElement>;
             "kaier-writer": LocalJSX.KaierWriter & JSXBase.HTMLAttributes<HTMLKaierWriterElement>;
-            "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
         }
     }
 }

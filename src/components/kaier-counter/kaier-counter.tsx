@@ -10,10 +10,7 @@ export class KaierCounter {
   @Prop() character_counter: number = 0;
   @Prop() word_counter: number = 0;
 
-
   componentDidLoad() {
-
-
     this.textContextEventListener();
   }
 
@@ -28,6 +25,7 @@ export class KaierCounter {
       this.word_counter = wordCount(res['detail']['text']);
     });
   }
+
   render() {
     return (
       <Host>
