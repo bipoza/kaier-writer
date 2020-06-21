@@ -4,26 +4,32 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0">
-  <title>Stencil Component Starter</title>
-
+  <title>Kaier Writer</title>
   <script type="module" src="/build/kaier-writer.esm.js"></script>
   <script nomodule src="/build/kaier-writer.js"></script>
-
 </head>
 
 <body>
 
   <!-- <my-component first="Stencil" last="'Don't call me a framework' JS"></my-component> -->
 
-  <kaier-writer>
+  <!-- <kaier-writer>
     <kaier-toolbar slot="top"></kaier-toolbar>
+    <kaier-counter></kaier-counter>
     <kaier-editor slot="bottom"></kaier-editor>
+  </kaier-writer> -->
+
+  <kaier-writer>
+    <kaier-toolbar></kaier-toolbar>
+    <kaier-counter></kaier-counter>
+    <kaier-editor></kaier-editor>
   </kaier-writer>
+
   <script>
     document.addEventListener('DOMContentLoaded', (event) => {
       const kaier_editor = document.querySelector('kaier-editor');
-      kaier_editor.addEventListener("contextTextChanges",res=>{
-        console.log("RESPONSE: ", res.detail);
+      kaier_editor.addEventListener("contextTextChanges", res => {
+        // console.log("RESPONSE: ", res.detail);
         // DO SOMETHING WITH THE RESPONSE TEXT
       });
     })

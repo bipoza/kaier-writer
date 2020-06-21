@@ -11,9 +11,17 @@ import { DEFAULT_ICONS } from '@constants'
 export class KaierToolbar implements ComponentInterface {
   @Element() private element: HTMLElement;
   @Prop() icons = DEFAULT_ICONS;
-
+  // @Prop() counter:number = 0;
   componentDidLoad() {
     this.documentEditor();
+    
+      // const kaier_editor = this.element.parentElement.querySelector('kaier-editor');
+      // kaier_editor.addEventListener("contextTextChanges",res=>{
+      //   console.log("RESPONSE toolbar: ", res['detail']['text'].length);
+      //   // DO SOMETHING WITH THE RESPONSE TEXT
+      //   this.counter = res['detail']['text'].length;
+      // });
+
   }
 
   documentEditor() {
@@ -63,7 +71,7 @@ export class KaierToolbar implements ComponentInterface {
 
               </div>
             </div> */}
-            <span id="counter">0</span>
+            {/* <span id="counter">{this.counter}</span> */}
           </div>
         </slot>
       </Host>

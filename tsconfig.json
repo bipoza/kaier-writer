@@ -19,6 +19,12 @@
     "paths": {
       "@constants": [
         "src/constants"
+      ],
+      "@interfaces": [
+        "src/interfaces.d"
+      ],
+      "@utils": [
+        "src/utils/utils"
       ]
     },
   },
