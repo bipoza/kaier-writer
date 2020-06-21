@@ -16,3 +16,8 @@ export function characterCount(str) {
 export function wordCount(str) { 
   return str.match(/\b[-?(\w+)?]+\b/gi).length;
 }
+
+
+export function stripHtml(html){
+   return html.textContent || html.innerText || "";
+}

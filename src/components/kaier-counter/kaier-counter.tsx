@@ -1,5 +1,5 @@
 import { Component, Host, h, Prop, Element } from '@stencil/core';
-import {characterCount, wordCount} from '@utils';
+import { characterCount, wordCount, stripHtml } from '@utils';
 @Component({
   tag: 'kaier-counter',
   styleUrl: 'kaier-counter.css',
@@ -12,24 +12,29 @@ export class KaierCounter {
 
 
   componentDidLoad() {
-    const kaier_editor = this.element.parentElement.querySelector('kaier-editor');
-    kaier_editor.addEventListener("contextTextChanges", res => {
-      console.log("RESPONSE toolbar: ", res['detail']['text'].length);
-      // DO SOMETHING WITH THE RESPONSE TEXT
-      this.character_counter = characterCount(res['detail']['text']);
-      this.word_counter = wordCount(res['detail']['text']);
 
 
-    });
+    this.textContextEventListener();
   }
 
+  textContextEventListener() {
+    const kaier_editor = this.element.parentElement.querySelector('kaier-editor');
+    let initial_content = stripHtml(kaier_editor.shadowRoot.getElementById('content'));
+    console.log("initial_content: ", initial_content);
+    this.character_counter = characterCount(initial_content);
+    this.word_counter = wordCount(initial_content);
+    kaier_editor.addEventListener("contextTextChanges", res => {
+      this.character_counter = characterCount(res['detail']['text']);
+      this.word_counter = wordCount(res['detail']['text']);
+    });
+  }
   render() {
     return (
       <Host>
         <slot>
           <span id="counter">
             {this.character_counter} character
-            <br/>
+            <br />
             {this.word_counter} word
             </span>
         </slot>
