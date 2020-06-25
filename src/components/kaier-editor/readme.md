@@ -7,9 +7,16 @@
 
 ## Properties
 
-| Property       | Attribute      | Description | Type     | Default                   |
-| -------------- | -------------- | ----------- | -------- | ------------------------- |
-| `content_text` | `content_text` |             | `string` | `'Once upon a time...✏️'` |
+| Property       | Attribute | Description | Type          | Default                          |
+| -------------- | --------- | ----------- | ------------- | -------------------------------- |
+| `content_text` | --        |             | `TEXT_EDITOR` | `{     text:"",     html:""   }` |
+
+
+## Events
+
+| Event                | Description | Type                       |
+| -------------------- | ----------- | -------------------------- |
+| `contextTextChanges` |             | `CustomEvent<TEXT_EDITOR>` |
 
 
 ----------------------------------------------
