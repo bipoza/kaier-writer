@@ -14,14 +14,6 @@ export class KaierToolbar implements ComponentInterface {
   // @Prop() counter:number = 0;
   componentDidLoad() {
     this.documentEditor();
-    
-      // const kaier_editor = this.element.parentElement.querySelector('kaier-editor');
-      // kaier_editor.addEventListener("contextTextChanges",res=>{
-      //   console.log("RESPONSE toolbar: ", res['detail']['text'].length);
-      //   // DO SOMETHING WITH THE RESPONSE TEXT
-      //   this.counter = res['detail']['text'].length;
-      // });
-
   }
 
   documentEditor() {
@@ -34,7 +26,23 @@ export class KaierToolbar implements ComponentInterface {
       document.execCommand(cmd_val[0], false, cmd_val[1]);
     }
   }
+
+
+  // Insert Link //
+
+  insertLink() {
+    const selection = document.getSelection();
+    let value = selection.toString();
+    if (value.slice(0, 4) != 'http') {
+      value = 'https://' + value;
+    }
   
+    document.execCommand('createLink', false, value);
+// document.execCommand('contentReadOnly', false, 'false')
+    // atag.setAttribute("contenteditable", "false");
+  }
+
+
   render() {
     return (
       <Host>
@@ -62,7 +70,7 @@ export class KaierToolbar implements ComponentInterface {
             <button title="Unordered list" class="toolbar-button" data-edit="insertUnorderedList"><img src={getAssetPath(this.icons.list_ul)} /></button>
             <button title="Ordered list" class="toolbar-button" data-edit="insertOrderedList"><img src={getAssetPath(this.icons.list_ol)} /></button>
 
-            <button title="Insert link" class="toolbar-button" type="button" data-edt="insertLink"><img src={getAssetPath(this.icons.link)} /></button>
+            <button title="Insert link" class="toolbar-button" type="button" data-edt="createLink:insertLink" onClick={() => this.insertLink()}><img src={getAssetPath(this.icons.link)} /></button>
             {/* <div class="popup">
               <button title="Image" type="button" class="popup-button toolbar-button no-caret last"><i class="fas fa-image"></i></button>
               <div class="popup-window">
