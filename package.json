@@ -10,10 +10,16 @@
   "collection": "dist/collection/collection-manifest.json",
   "collection:main": "dist/collection/index.js",
   "unpkg": "dist/kaier-writer/kaier-writer.js",
+  "publishConfig": { "registry": "https://npm.pkg.github.com/" },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com:bipoza/kaier-writer.git"
+  },
   "files": [
     "dist/",
     "loader/"
   ],
+ 
   "scripts": {
     "build": "stencil build --docs",
     "start": "stencil build --dev --watch --serve",
