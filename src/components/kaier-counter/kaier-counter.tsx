@@ -14,9 +14,9 @@ export class KaierCounter {
     this.textContextEventListener();
   }
 
-  textContextEventListener() {
-    const kaier_editor = this.element.parentElement.querySelector('kaier-editor');
-    let initial_content = stripHtml(kaier_editor.shadowRoot.getElementById('content'));
+  async textContextEventListener() {
+    const kaier_editor = await this.element.parentElement.querySelector('kaier-editor');
+    let initial_content = await stripHtml(kaier_editor.shadowRoot.getElementById('content'));
     console.log("initial_content: ", initial_content);
     this.character_counter = characterCount(initial_content);
     this.word_counter = wordCount(initial_content);
