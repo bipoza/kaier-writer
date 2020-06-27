@@ -1,6 +1,6 @@
 {
   "name": "kaier-writer",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Modern text editor based on Writty made with StencilJS",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -19,7 +19,7 @@
     "dist/",
     "loader/"
   ],
- 
+
   "scripts": {
     "build": "stencil build --docs",
     "start": "stencil build --dev --watch --serve",
