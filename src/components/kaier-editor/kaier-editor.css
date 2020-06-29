@@ -2,19 +2,14 @@
   display: block;
 }
 
-/* Container, Editor and Content */
+/* Editor and Content */
 
-/* .container {
-  position: relative;
-  width: 100%;
-  margin: 0 auto;
-} */
 
 .editor {
   font-family: 'Buenard', sans-serif;
   display: block;
-  max-width: 900px;
-  height: 500px;
+  max-width: 80vw;
+  height: 80vh;
   overflow-y: auto;
   overflow-x: hidden;
   margin: auto;
@@ -28,7 +23,7 @@
   position: relative;
   display: inline-block;
   width: 100%;
-  min-height: 900px;
+  min-height: 100%;
   padding: 10px;
   padding-top: 0;
   margin-top: -4px;
